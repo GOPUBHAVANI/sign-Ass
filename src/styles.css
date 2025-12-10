@@ -1,0 +1,358 @@
+/* ===== Global ===== */
+:root {
+  --primary-gradient: linear-gradient(135deg, #4b6cb7, #182848);
+  --accent-gradient: linear-gradient(135deg, #ff9966, #ff5e62);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(255, 255, 255, 0.7);
+  --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: var(--primary-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #282d37;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: transparent !important;
+}
+
+.navbar-dark.bg-dark {
+  background: linear-gradient(120deg, #0f172a, #020617) !important;
+  box-shadow: 0 12px 30px rgba(23, 37, 68, 0.6);
+}
+
+.navbar-brand {
+  letter-spacing: 0.03em;
+}
+
+/* ===== Layout ===== */
+.min-vh-100 {
+  padding-bottom: 2rem;
+}
+
+.container {
+  max-width: 1120px;
+}
+
+/* ===== Cards / Glassmorphism ===== */
+.card {
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.card-body {
+  animation: fadeInUp 0.6s ease both;
+}
+
+/* ===== Tabs / Pills ===== */
+.nav-pills .nav-link,
+.nav-tabs .nav-link {
+  border-radius: 999px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.nav-pills .nav-link.active {
+  background-image: var(--accent-gradient);
+  box-shadow: 0 10px 24px rgba(248, 113, 113, 0.45);
+  transform: translateY(-1px);
+}
+
+.nav-pills .nav-link:not(.active):hover,
+.nav-tabs .nav-link:not(.active):hover {
+  background-color: rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.nav-tabs {
+  border-bottom: none;
+  gap: 0.5rem;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  background-color: rgba(15, 23, 42, 0.04);
+}
+
+.nav-tabs .nav-link.active {
+  background-image: var(--accent-gradient);
+  color: #fff !important;
+  box-shadow: 0 10px 20px rgba(248, 113, 113, 0.45);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  border-radius: 999px;
+  font-weight: 500;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-position 0.25s ease;
+  background-size: 200% auto;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+.btn-primary {
+  background-image: var(--accent-gradient);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+}
+
+.btn-outline-primary,
+.btn-outline-secondary {
+  backdrop-filter: blur(10px);
+}
+
+/* Smaller buttons look better on mobile */
+.btn-sm {
+  padding-inline: 0.9rem;
+}
+
+/* ===== Signature Preview ===== */
+.signature-preview-card {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 16px;
+  padding: 0.75rem 1rem 1rem;
+  background: radial-gradient(circle at top left, #ffffff, #f8fafc);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.18);
+}
+
+.signature-preview-box {
+  height: 180px;
+  border-radius: 12px;
+  background-image: linear-gradient(
+      135deg,
+      rgba(148, 163, 184, 0.35),
+      rgba(226, 232, 240, 0.4)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.3) 0,
+      rgba(255, 255, 255, 0.3) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+/* ===== Document Viewer ===== */
+.document-viewer {
+  min-height: 360px;
+  max-height: 640px;
+  overflow: auto;
+  padding: 0.5rem;
+  border-radius: 16px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.28);
+}
+
+/* Center PDF / image nicely */
+.document-viewer > * {
+  display: block;
+  margin-inline: auto;
+}
+
+/* ===== Inputs / Sliders ===== */
+.form-control,
+.form-select {
+  border-radius: 12px;
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.9);
+}
+
+input[type="color"] {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 0;
+  width: 42px;
+  height: 28px;
+}
+
+/* Range sliders */
+.form-range {
+  accent-color: #fb7185; /* nice pink */
+}
+
+/* ===== Simple Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease both;
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-soft {
+  animation: floatSoft 3s ease-in-out infinite;
+}
+
+/* ===== Mobile Responsiveness ===== */
+
+/* Small screens */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem 1rem 1.25rem;
+  }
+
+  .signature-preview-box {
+    height: 140px;
+  }
+
+  .document-viewer {
+    min-height: 320px;
+    padding: 0.4rem;
+  }
+
+  .nav-pills {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-pills .nav-link {
+    font-size: 0.85rem;
+    padding-inline: 0.75rem;
+  }
+
+  .nav-tabs .nav-link {
+    font-size: 0.85rem;
+    padding-inline: 0.8rem;
+  }
+
+  .row.g-4 > [class*="col-"] {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 576px) {
+  .container {
+    padding-inline: 0.75rem;
+  }
+
+  .navbar {
+    padding-inline: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.82rem;
+  }
+}
+/* ===== Updated Navigation Styles ===== */
+
+/* Default tab/nav link color */
+.nav-pills .nav-link,
+.nav-tabs .nav-link {
+  color: #d0d4d9; /* Dark slate (professional readable) */
+}
+
+/* Hover state */
+.nav-pills .nav-link:not(.active):hover,
+.nav-tabs .nav-link:not(.active):hover {
+  color: #111827;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Active Tab Highlight */
+.nav-pills .nav-link.active {
+  background-image: var(--accent-gradient);
+  color: #0a0808 !important;
+  border: none;
+  box-shadow: 0 10px 24px rgba(255, 94, 98, 0.35);
+}
+
+.nav-tabs .nav-link.active {
+  background-image: var(--accent-gradient);
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 10px 24px rgba(255, 94, 98, 0.35);
+}
+
+/* Add smooth transition */
+.nav-link {
+  transition: all 0.25s ease;
+}
+/* Range slider track + thumb professional blue accent */
+.form-range {
+  accent-color: #1c2539; /* Tailwind professional blue */
+}
+
+/* Cross-browser improvement */
+.form-range::-webkit-slider-thumb {
+  background-color: #2563eb;
+  border: 2px solid #ffffff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form-range::-webkit-slider-thumb:hover {
+  background-color: #1e40af; /* darker on hover */
+}
+
+/* Track style improvement */
+.form-range::-webkit-slider-runnable-track {
+  height: 6px;
+  background: rgba(37, 99, 235, 0.35);
+  border-radius: 8px;
+}
+/* Form Label Style */
+.form-label {
+  color: #0f172a;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.form-range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+  background-color: #1e3a8a;
+}
